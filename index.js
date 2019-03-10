@@ -1,10 +1,26 @@
-const TelegramBot = require('node-telegram-bot-api')
+import telebot
+import time
 
+bot_token = '724656935:AAHtNlNoa8Da6UO7sQzh345UT1gcKPcD01Y'
 
-const TOKEN = '724656935:AAHtNlNoa8Da6UO7sQzh345UT1gcKPcD01Y'
+bot = telebot.TeleBot(token=bot_token)
 
-const bot = new TelegramBot(TOKEN, {polling: true})
+def find_at(msg):
+    for text in msg:
+        if '@' in text:
+            return text
 
-bot.on('message', msg => {
-    bot.sendMessage(msg.chat.id, `Hello, bot says: "Привет, ${msg.from.first_name}"`)
-})
+@bot.message_handler(commands=['start'])
+def send_welcom(message):
+    bot.reply_to(message, 'Welcome')
+
+@bot.message_handler(commands=['help'])
+def send_welcom(message):
+    bot.reply_to(message, 'To use this bot, send it a username')
+
+@bot.message_handler(func=lambda msg: msg.text is not None and '@' in msg.text)
+def at_answer(message):
+    text = message.text.split()
+    at_text = find_at(texts)
+
+    bot.reply_to(message, 'Welcome')
