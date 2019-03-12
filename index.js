@@ -6,9 +6,9 @@ const bot = new TelegramBot(TOKEN, {polling: true})
 
 bot.onText(/\/start/, (msg) => {
     
-bot.sendMessage(msg.chat.id, `Hello from SPB, bot says: "Привет, ${msg.from.first_name}"`, {
+bot.sendMessage(msg.chat.id, `Добро пожаловать ${msg.from.first_name}"`, {
 "reply_markup": {
-    "keyboard": [["Sample text", "Second sample"],   ["Keyboard"], ["I'm robot"]]
+    "keyboard": [["Sample text"],   ["Keyboard"], ["I'm robot"]]
     }
 });
     
