@@ -12,12 +12,16 @@ bot.sendMessage(msg.chat.id, `Добро пожаловать ${msg.from.first_n
     }
 });
     
-    if message.text == "1":
-        bot.send_message(message.chat.id, "Вы нажали 1")
-    elif message.text == "2":              
-        bot.send_message(message.chat.id,"Вы нажали 2")
-    elif message.text == "3":
-        bot. send_message(message.chat.id,"Вы нажали 3")
+var options = {
+  reply_markup: JSON.stringify({
+    inline_keyboard: [
+      [{ text: 'Кнопка 1', callback_data: '1' }],
+      [{ text: 'Кнопка 2', callback_data: 'data 2' }],
+      [{ text: 'Кнопка 3', callback_data: 'text 3' }]
+    ]
+  })
+};
 
+bot.onText(/\/start_test/, function (msg, match) {
+  bot.sendMessage(msg.chat.id, 'Выберите любую кнопку:', options);
 });
-
