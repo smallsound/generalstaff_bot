@@ -5,12 +5,27 @@ const TOKEN = '724656935:AAHtNlNoa8Da6UO7sQzh345UT1gcKPcD01Y'
 const bot = new TelegramBot(TOKEN, {polling: true})
 
 
-bot.onText(/\/start/, (msg) => {
-    
-bot.sendMessage(msg.chat.id, "Welcome", {
-"reply_markup": {
-    "keyboard": [["Sample text", "Second sample"],   ["Keyboard"], ["I'm robot"]]
-    }
-});
-    
-});
+bot.keyboard('footer', [{':arrow_backward:': {go: 'start'}}])
+
+bot.command('start', function (ctx) {
+  ctx.sendMessage('Hello there')
+}).keyboard([
+  [{'Page 1': {go: 'page1'}}],
+  [{'Page 2': {go: 'page2'}}]
+])
+
+bot.command('page1', function () {
+  ctx.sendMessage('This is page 1')
+})
+.keyboard([
+  [{'Page 2': {go: 'page2'}}],
+  'footer'
+])
+
+bot.command('page2', function () {
+  ctx.sendMessage('This is page 1')
+})
+.keyboard([
+  [{'Page 1': {go: 'page1'}}],
+  'footer'
+])
