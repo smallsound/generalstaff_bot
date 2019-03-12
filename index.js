@@ -12,10 +12,8 @@ bot.sendMessage(msg.chat.id, `Добро пожаловать ${msg.from.first_n
     }
 });
     
-});
-
-
 var robot = "1 text";
 if (msg.text.indexOf(robot) === 0) {
     bot.sendMessage(msg.chat.id, "ответ 1");
 
+});
