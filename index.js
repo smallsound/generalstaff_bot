@@ -6,12 +6,27 @@ const bot = new TelegramBot(TOKEN, {polling: true});
     
 bot.onText(/\/start/, (msg) => {
     
-bot.sendMessage(msg.chat.id, `Добро пожаловать 🚙 ${msg.from.first_name}✌`, {
-"reply_markup": {
-    "inline_keyboard": [[" 💦 МОЙКА 💦 "],  [" 🏁 АЗС 🏁 "], [" 🛠 СТО-РЕМОНТ 🛠 "]]
+bot.sendMessage(chatId, 'Выберите какая валюта вас интересует', {
+    reply_markup: {
+      inline_keyboard: [
+        [
+          {
+            text: '€ - EUR',
+            callback_data: 'EUR'
+          }, {
+            text: '$ - USD',
+            callback_data: 'USD'
+          }, {
+            text: '₽ - RUR',
+            callback_data: 'RUR'
+          }, {
+            text: '₿ - BTC',
+            callback_data: 'BTC'
+          }
+        ]
+      ]
     }
-
-});
+  });
     
 
 
