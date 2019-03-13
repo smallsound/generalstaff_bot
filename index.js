@@ -7,12 +7,18 @@ const bot = new TelegramBot(TOKEN, {polling: true});
 
 bot.onText(/\/start/, (msg) => {
     
-bot.sendMessage(msg.chat.id, `Добро пожаловать 🚙 ${msg.from.first_name}✌`, {
-"reply_markup": {
-    "keyboard": [[" 💦 МОЙКА 💦 "],  [" 🏁 АЗС 🏁 "]]
-    }
-});
-    
+
+
+var menuButtons = {
+    parse_mode: 'markdown',
+    disable_web_page_preview: false,
+    reply_markup: JSON.stringify({
+        inline_keyboard:
+        [
+            [{text: 'Сегодня', callback_data: 'today'}]
+        ]
+    })
+};
 
 
 });
