@@ -8,8 +8,8 @@ const bot = new TelegramBot(TOKEN, {polling: true})
 def send_welcome(message):
 	bot.send_message(
 		message.chat.id,
-		'''Добро пожаловать. ✌
-		''',
+		'Добро пожаловать. ✌
+	        ',
 		reply_markup=keyboard())
 });
     
