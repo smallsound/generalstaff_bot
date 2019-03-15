@@ -11,3 +11,8 @@ def send_welcome(message):
 		'''Добро пожаловать. ✌
 		''',
 		reply_markup=keyboard())
+});
+    
+
+
+});
