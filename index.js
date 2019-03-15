@@ -4,12 +4,9 @@ const TOKEN = '724656935:AAHtNlNoa8Da6UO7sQzh345UT1gcKPcD01Y'
 
 const bot = new TelegramBot(TOKEN, {polling: true})
       
-@bot.message_handler(commands = ['switch'])
-def switch(message):
-    markup = types.InlineKeyboardMarkup()
-    switch_button = types.InlineKeyboardButton(text='Try', switch_inline_query="Telegram")
-    markup.add(switch_button)
-    bot.send_message(message.chat.id, "Выбрать чат", reply_markup = markup)
+[[{«Text»: «text 1 ″,« callback_data »:« 1 ″}, 
+  {«text»: «Некоторые текстовые кнопки 2 ″,« url »:« https://botpress.org »},
+   {« text »:« Some button text 3 ″, «callback_data»: «3 ″}]]
 });
     
 
