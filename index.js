@@ -7,9 +7,8 @@ const bot = new TelegramBot(TOKEN, {polling: true})
 bot.onText(/\/start/, (msg) => {
     
 bot.sendMessage(msg.chat.id, `Добро пожаловать 🚙 ${msg.from.first_name}✌`, {
-"reply_markup": {
-    "keyboard": [[" 💦 МОЙКА 💦 "],  [" 🏁 АЗС 🏁 "], [" 🛠 СТО-РЕМОНТ 🛠 "]]
-    }
+"reply_markup": { "ReplyKeyboardMarkup": { "клавиатура": [[{ "KeyboardButton": { "текст": "тест"}}]]}}
+  
 });
     
 
