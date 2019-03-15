@@ -4,11 +4,11 @@ const TOKEN = '724656935:AAHtNlNoa8Da6UO7sQzh345UT1gcKPcD01Y'
 
 const bot = new TelegramBot(TOKEN, {polling: true})
       
-bot.onText(/\/start/, (msg) => {
+bot.onText(/\/ПОЕХАЛИ/, (msg) => {
     
 bot.sendMessage(msg.chat.id, "Welcome", {
 "reply_markup": {
-    "keyboard": [["sample", "Second sample"],   ["Keyboard"], ["I'm robot"]]
+    "keyboard": [[" 💦 МОЙКА 💦 "],  [" 🏁 АЗС 🏁 "], [" 🛠 СТО-РЕМОНТ 🛠 "]]
     }
 });
     
@@ -16,7 +16,7 @@ bot.sendMessage(msg.chat.id, "Welcome", {
 
 
 bot.on('message', (msg) => {
-var sample = "sample";
+var МОЙКА = "💦 МОЙКА 💦";
 if (msg.text.toString().toLowerCase().indexOf(sample) === 0) {
     bot.sendMessage(msg.chat.id, "Hello dear user");
 }
