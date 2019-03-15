@@ -4,28 +4,50 @@ const TOKEN = '724656935:AAHtNlNoa8Da6UO7sQzh345UT1gcKPcD01Y'
 
 const bot = new TelegramBot(TOKEN, {polling: true})
       
-bot.onText(/\/START/, (msg) => {
-    
-bot.sendMessage(msg.chat.id, "Welcome", {
-"reply_markup": {
-    "keyboard": [[" 💦 МОЙКА 💦 "],  [" 🏁 АЗС 🏁 "], [" 🛠 СТО-РЕМОНТ 🛠 "]]
-    }
-});
-    
-});
+var l1 = "left";
+var r1 = "right";
 
+var g1 = "Good";
+var b1 = "Bad";
 
-bot.on('message', (msg) => {
-var МОЙКА = "💦 МОЙКА 💦";
-if (msg.text.toString().toLowerCase().indexOf(💦 МОЙКА 💦) === 0) {
-    bot.sendMessage(msg.chat.id, "Hello dear user");
-}
-var bye = "bye";
-if (msg.text.toString().toLowerCase().includes(bye)) {
-    bot.sendMessage(msg.chat.id, "Hope to see you around again , Bye");
-}    
-var robot = "I'm robot";
-if (msg.text.indexOf(robot) === 0) {
-    bot.sendMessage(msg.chat.id, "Yes I'm robot but not in that way!");
-}
-});
+  bot.onText(/\/step2/, (msg) => {
+        bot.sendMessage(msg.chat.id, "Who is playing?\n And you must write <<И>>", {});
+        bot.on('text', (msg) => {
+        if (msg.text.toLowerCase().includes("и")) {
+          bot.sendMessage(msg.chat.id, "This is left or right?", {
+            "reply_markup": {
+              "keyboard": [[l1 , r1]]
+            }
+          });
+          bot.on('text', (msg) => {
+            if (msg.text === l1) {
+              bot.sendMessage(msg.chat.id, "Good or bad?", {
+                "reply_markup": {
+                  "keyboard": [[g1 , b1]]
+                }
+              });
+              bot.on('text', (msg) => {
+                if (msg.text === g1) {
+                  bot.sendMessage(msg.chat.id, "So, you can go \n /step3", {});
+                } else if (msg.text === b1) {
+                  bot.sendMessage(msg.chat.id, "So, you can go \n /step3", {});
+                }
+              });
+            } else if (msg.text === r1) {
+              bot.sendMessage(msg.chat.id, "Good or bad?", {
+                "reply_markup": {
+                  "keyboard": [[g1 , b1]]
+                }
+              });
+              bot.on('text', (msg) => {
+                if (msg.text === g1) {
+                  bot.sendMessage(msg.chat.id, "So, you can go \n /step3", {});
+                } else if (msg.text === b1) {
+                  bot.sendMessage(msg.chat.id, "So, you can go \n /step3", {});
+                }
+              });
+            }
+          });
+          } else {}
+      });
+    });
