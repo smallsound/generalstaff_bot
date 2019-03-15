@@ -8,7 +8,7 @@ bot.onText(/\/start/, (msg) => {
     
 bot.sendMessage(msg.chat.id, "Welcome", {
 "reply_markup": {
-    "keyboard": [["Sample", "Second sample"],   ["Keyboard"], ["I'm robot"]]
+    "keyboard": [["sample", "Second sample"],   ["Keyboard"], ["I'm robot"]]
     }
 });
     
@@ -16,7 +16,7 @@ bot.sendMessage(msg.chat.id, "Welcome", {
 
 
 bot.on('message', (msg) => {
-var Sample = "Sample";
+var sample = "sample";
 if (msg.text.toString().toLowerCase().indexOf(Hi) === 0) {
     bot.sendMessage(msg.chat.id, "Hello dear user");
 }
