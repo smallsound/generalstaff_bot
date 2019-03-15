@@ -15,4 +15,3 @@ def send_welcome(message):
     
 
 
-});
