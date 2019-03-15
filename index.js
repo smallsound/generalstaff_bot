@@ -17,7 +17,7 @@ bot.sendMessage(msg.chat.id, "Welcome", {
 
 bot.on('message', (msg) => {
 var sample = "sample";
-if (msg.text.toString().toLowerCase().indexOf(Hi) === 0) {
+if (msg.text.toString().toLowerCase().indexOf(sample) === 0) {
     bot.sendMessage(msg.chat.id, "Hello dear user");
 }
 var bye = "bye";
