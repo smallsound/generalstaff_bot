@@ -4,7 +4,7 @@ const TOKEN = '724656935:AAHtNlNoa8Da6UO7sQzh345UT1gcKPcD01Y'
 
 const bot = new TelegramBot(TOKEN, {polling: true})
       
-bot.onText(/\/ПОЕХАЛИ/, (msg) => {
+bot.onText(/\/START/, (msg) => {
     
 bot.sendMessage(msg.chat.id, "Welcome", {
 "reply_markup": {
