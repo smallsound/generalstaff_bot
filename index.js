@@ -18,7 +18,3 @@ if (msg.text.indexOf(robot) === 0) {
     bot.sendMessage(msg.chat.id, "Yes I'm robot but not in that way!");
 }
 });
-
-
-
-});
