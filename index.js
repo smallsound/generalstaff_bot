@@ -4,28 +4,20 @@ const TOKEN = '724656935:AAHtNlNoa8Da6UO7sQzh345UT1gcKPcD01Y'
 
 const bot = new TelegramBot(TOKEN, {polling: true})
       
-bot.sendMessage(chatId, 'Выберите какая валюта вас интересует', {
-    reply_markup: {
-      inline_keyboard: [
-        [
-          {
-            text: '€ - EUR',
-            callback_data: 'EUR'
-          }, {
-            text: '$ - USD',
-            callback_data: 'USD'
-          }, {
-            text: '₽ - RUR',
-            callback_data: 'RUR'
-          }, {
-            text: '₿ - BTC',
-            callback_data: 'BTC'
-          }
-        ]
-      ]
-    }
-  });
-    
+bot.on('message', (msg) => {
+var Hi = "hi";
+if (msg.text.toString().toLowerCase().indexOf(Hi) === 0) {
+    bot.sendMessage(msg.chat.id, "Hello dear user");
+}
+var bye = "bye";
+if (msg.text.toString().toLowerCase().includes(bye)) {
+    bot.sendMessage(msg.chat.id, "Hope to see you around again , Bye");
+}    
+var robot = "I'm robot";
+if (msg.text.indexOf(robot) === 0) {
+    bot.sendMessage(msg.chat.id, "Yes I'm robot but not in that way!");
+}
+});
 
 
 
